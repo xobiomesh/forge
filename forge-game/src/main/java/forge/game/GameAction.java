@@ -2554,6 +2554,31 @@ public class GameAction {
         game.getTriggerHandler().runTrigger(TriggerType.BecomeMonarch, runParams, false);
     }
 
+    public void shiftWorld(final Player controller, final WorldPlane destination) {
+        final WorldPlane origin = game.getWorldPlane();
+        if (destination == origin) {
+            return;
+        }
+
+        boolean legal = false;
+        for (WorldPlane dest : origin.legalShiftDestinations()) {
+            if (dest == destination) {
+                legal = true;
+                break;
+            }
+        }
+        if (!legal) {
+            return;
+        }
+
+        game.setWorldPlane(destination);
+
+        final Map<AbilityKey, Object> runParams = AbilityKey.mapFromPlayer(controller);
+        runParams.put(AbilityKey.WorldPlaneOrigin, origin);
+        runParams.put(AbilityKey.WorldPlaneDestination, destination);
+        game.getTriggerHandler().runTrigger(TriggerType.WorldMoved, runParams, false);
+    }
+
     public void takeInitiative(final Player p, final String set) {
         final Player previous = game.getHasInitiative();
         if (p == null) {

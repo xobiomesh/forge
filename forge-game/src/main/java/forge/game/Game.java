@@ -125,6 +125,7 @@ public class Game {
     private Player monarch;
     private Player monarchBeginTurn;
     private Player startingPlayer;
+    private WorldPlane worldPlane = WorldPlane.HORIZON;
 
     private Direction turnOrder = Direction.getDefaultDirection();
 
@@ -171,6 +172,13 @@ public class Game {
     }
     public void setMonarch(final Player p) {
         monarch = p;
+    }
+
+    public WorldPlane getWorldPlane() {
+        return worldPlane;
+    }
+    public void setWorldPlane(final WorldPlane p) {
+        worldPlane = p;
     }
 
     public Player getMonarchBeginTurn() {

@@ -136,6 +136,8 @@ public enum AbilityKey {
     TokenNum("TokenNum"),
     Valiant("Valiant"),
     Won("Won"),
+    WorldPlaneOrigin("WorldPlaneOrigin"),
+    WorldPlaneDestination("WorldPlaneDestination"),
 
     // below shared across different Replacements, don't reuse
     InternalTriggerTable("InternalTriggerTable"),

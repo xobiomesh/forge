@@ -158,7 +158,8 @@ public enum TriggerType {
     Untaps(TriggerUntaps.class),
     VisitAttraction(TriggerVisitAttraction.class),
     Vote(TriggerVote.class),
-    Waterbend(TriggerElementalbend.class)          
+    WorldMoved(TriggerWorldMoved.class),
+    Waterbend(TriggerElementalbend.class)
     ;
 
     private final Constructor<? extends Trigger> constructor;

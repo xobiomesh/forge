@@ -55,4 +55,28 @@ public class WorldPlaneShiftTest extends AITest {
 
         AssertJUnit.assertEquals(WorldPlane.HORIZON, game.getWorldPlane());
     }
+
+    @Test
+    public void testShiftFromZenithBackToHorizonIsLegal() {
+        Game game = initAndCreateGame();
+        Player p = game.getPlayers().get(0);
+
+        game.action.shiftWorld(p, WorldPlane.ZENITH);
+        AssertJUnit.assertEquals(WorldPlane.ZENITH, game.getWorldPlane());
+
+        game.action.shiftWorld(p, WorldPlane.HORIZON);
+        AssertJUnit.assertEquals(WorldPlane.HORIZON, game.getWorldPlane());
+    }
+
+    @Test
+    public void testShiftToSamePlaneFromExtremeIsNoOp() {
+        Game game = initAndCreateGame();
+        Player p = game.getPlayers().get(0);
+
+        game.action.shiftWorld(p, WorldPlane.ZENITH);
+        AssertJUnit.assertEquals(WorldPlane.ZENITH, game.getWorldPlane());
+
+        game.action.shiftWorld(p, WorldPlane.ZENITH);
+        AssertJUnit.assertEquals(WorldPlane.ZENITH, game.getWorldPlane());
+    }
 }

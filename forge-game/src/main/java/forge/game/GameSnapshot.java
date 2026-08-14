@@ -307,6 +307,9 @@ public class GameSnapshot {
         if (fromGame.getDayTime() != null) {
             toGame.setDayTime(fromGame.getDayTime());
         }
+        if (fromGame.getWorldPlane() != null) {
+            toGame.setWorldPlane(fromGame.getWorldPlane());
+        }
 
         List<UnorderedEntities> unorderedEntities = Lists.newArrayList();
 

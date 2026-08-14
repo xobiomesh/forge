@@ -7,6 +7,7 @@ import java.util.List;
 import forge.game.Game;
 import forge.game.GameAction;
 import forge.game.GameStage;
+import forge.game.WorldPlane;
 import forge.game.ability.SpellAbilityEffect;
 import forge.game.card.Card;
 import forge.game.card.CardCollection;
@@ -55,6 +56,7 @@ public class RestartGameEffect extends SpellAbilityEffect {
         game.setMonarch(null);
         game.setHasInitiative(null);
         game.setDayTime(null);
+        game.setWorldPlane(WorldPlane.HORIZON);
         GameAction action = game.getAction();
 
         for (Player p: players) {
